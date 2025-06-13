@@ -1,0 +1,33 @@
+{
+  "key": "jira-excel-sharepoint-field",
+  "name": "Excel SharePoint Custom Field",
+  "description": "Custom field that loads options from a SharePoint Excel sheet",
+  "baseUrl": "{{localBaseUrl}}",
+  "authentication": {
+    "type": "jwt"
+  },
+  "scopes": [
+    "READ",
+    "WRITE",
+    "ACT_AS_USER"
+  ],
+  "modules": {
+    "jira:customField": [
+      {
+        "key": "excel-sharepoint-select",
+        "name": {
+          "value": "SharePoint Excel Select"
+        },
+        "description": {
+          "value": "Select value from SharePoint Excel"
+        },
+        "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+        "properties": {
+          "options": {
+            "url": "/excel-options"
+          }
+        }
+      }
+    ]
+  }
+}
